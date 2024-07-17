@@ -29,20 +29,28 @@
 }
 
 .url-button-div{
+    margin-top: 2em;
     display: flex;
-    width: 48vmax;
-    height: 4em;
-    position: relative;
+    align-content: center;
+    width: 30%;
+    height: 10%;
 }
 .url-button-div>button{
     height: 100%;
     width: 100%;
-    margin: 2em;
+    margin: 10px;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 1.3em;
+    font-size: 2.4vmin;
     background-color: #edd395c7;
-    box-shadow: #9fc4d0;
+    box-shadow: black 4px 6px 0px;
+    border-radius: 1.2vmin;
+    border-width: 1px;
+    border-style: solid;
+    text-shadow: 0px 0px 20px #0000006d;
     
+}
+.url-button-div>button:hover{
+    background-color: #eabd52d7;
 }
 
 .home-footer{

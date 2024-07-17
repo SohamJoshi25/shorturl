@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Alatsi&display=swap');
 
 body{
-    background-color: #f4efe4;
+    background-color: #f8f1e3;
     margin: 0;
 }
 
@@ -19,9 +19,6 @@ body{
     z-index:-1;
 }
 
-.vbar>div{
-    
-}
 
 .pink{
     background-color: #e9c7c6;
@@ -34,7 +31,7 @@ body{
 }
 
 .yellow{
-    background-color: #e8e0da;
+    background-color: #e3d6b8;
     width: 6vmax;
 }
 
@@ -72,4 +69,14 @@ body{
   .notfound a{
     color: blue;
     text-decoration: underline;
+  }
+
+
+  .dots-projection{
+    display: block;
+  }
+
+  .dots{
+    height: 1000px;
+    width: 1000px;
   }
