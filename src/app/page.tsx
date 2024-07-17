@@ -1,5 +1,15 @@
 
 
+import HomeFooter from "@/components/homefooter";
+import HomeTitle from "@/components/hometitle";
+import URLButtons from "@/components/urlbuttons";
+
 export default function Home() {
-  return ( <h1>This is home</h1> );
+  return ( 
+	<div className="home">
+		<HomeTitle/>
+		<URLButtons/>
+		<HomeFooter/>
+	</div> 	
+  );
 }

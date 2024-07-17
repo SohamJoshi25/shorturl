@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Alatsi&display=swap');
+.home{
+    height: 90vh;
+    width: 100%;
+    margin: 0px;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center
+}
+
+.home-title{
+    background-color: #94979815;
+    padding: 1em;
+    border-radius:1em;
+    margin-top: 2vh;
+}
+
+.home-title>h1{
+    margin: auto;
+    font-family: "Alatsi", sans-serif;
+    font-weight : 400;
+    font-size: 8vmax;
+    font-size: 1;
+    font-style: normal;
+}
+
+.url-button-div{
+    display: flex;
+    width: 48vmax;
+    height: 4em;
+    position: relative;
+}
+.url-button-div>button{
+    height: 100%;
+    width: 100%;
+    margin: 2em;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.3em;
+    background-color: #edd395c7;
+    box-shadow: #9fc4d0;
+    
+}
+
+.home-footer{
+   bottom: 10px;
+   font-size:1vmax;
+   margin-top: 10em;
+   position: relative;
+   display: inline-block;
+}
+
+.home-footer:hover{
+    color: #014256;
+}
+
+.home-footer  .tooltip {
+    visibility: hidden;
+    width: 20em;
+    background-color: rgba(0, 0, 0, 0.573);
+    color: #fff;
+    font-size:1vmax;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    top:3em;
+    z-index: 2;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .home-footer:hover  .tooltip {
+    
+    visibility: visible;
+  }
