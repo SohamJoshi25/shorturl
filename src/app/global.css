@@ -82,8 +82,29 @@ body{
   }
 
   .alert{
+    vertical-align: middle;
+    font-size: 100%;
+    font-family: 'Times New Roman', Times, serif;
     position: absolute;
     top:10px;
     left:10px;
     right:10px;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: 1fr 4em;
+    border-radius: 1em;
+  }
+
+  .alert>h2{
+    padding-left: 1em;
+  }
+
+  .alert button{
+    text-align: center;
+    font-size: x-large;
+    margin: 14px;
+    border-radius: 0.2em;
+  }
+  .alert button:hover{
+    background-color: rgb(226, 113, 113);
   }

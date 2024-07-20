@@ -1,0 +1,10 @@
+.su{
+    height: 90vh;
+    width: 100%;
+    margin-top: 45vh;
+}
+
+.su>h1{
+    font-size: large;
+    text-align: center;
+}

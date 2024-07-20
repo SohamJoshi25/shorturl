@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Alatsi&display=swap');
+
+
+.addurl{
+    height: 97vh;
+    width: 100%;
+    margin: 0px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.addurl form{
+    background-color: rgba(121, 120, 123, 0.034);
+    font-size: 100%;
+    text-align: center;
+    padding: 4em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 1em;
+
+}
+
+.add-url-text{
+    background-color: #94979800;
+    padding: 1em;
+    text-shadow:6px 4px 7px #5555559c;
+    border-radius: 0.5em;
+    margin-bottom: 1em;
+}
+
+.url-input{
+    height: 4em;
+    width: 100%;
+    margin: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2.6vmin;
+    color: black;
+    background-color: #c6e1ea;
+    box-shadow: rgb(0, 0, 0) 5px 6px 0px;
+    border-radius: 1.2vmin;
+    border-width: 2px;
+    border: #000000;
+    border-style: solid;
+    text-align: center;
+} 
+.url-input::placeholder{
+    color: rgb(80, 80, 80);
+    text-align: center;
+}
+
+.url-input:focus{
+    outline: none;
+}
+
+.url-submit{
+    display: inline-block;
+    width:10vw;
+    min-width:10ch;
+    height: 2.4em;
+    margin-top:1vh;
+    margin-bottom:2vh;
+    font-family: 'Times New Roman', Times, serif;
+    background-color:#f0d7858b;
+    box-shadow: rgb(0, 0, 0) 2px 2px 0px;
+    border-radius: 0.4em;
+    text-align: center;
+}
+
+.url-response-div{
+    margin-top: 2em;
+
+}
+
+.url-response{
+    margin: 1em;
+    padding: 1em;
+    border-radius: 0.75em;
+    font-weight: 500;
+    font-size: 80%;
+    background-color: #FFF;
+}
+
+.url-response-div > .tooltips{
+    font-size: small;
+}

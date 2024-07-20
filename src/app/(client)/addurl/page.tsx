@@ -3,8 +3,8 @@ import Alert from '@/components/alert';
 import React from 'react'
 import axios from 'axios'
 import { useState } from 'react';
-import { METHODS } from 'http';
 import { URLInterface } from '@/models/urls.model';
+import '@/app/(client)/addurl/addUrl.css'
 
 
  
@@ -12,25 +12,42 @@ import { URLInterface } from '@/models/urls.model';
 export default function addUrl() {
 
   const [url,setUrl] = useState("");
-  const [shortUrl , setShortUrl] = useState("");
+  const [shortUrl , setShortUrl] = useState("PLease wait . .");
   const [isFetched, setFetched] = useState(false);
-  const [error,setError] = useState(false);
+  const [err, setErr] = useState<IError>({
+    message:"Some Error Occured",
+    colorBg:"#000",
+    colorTxt:"#FFF", 
+  });
+  const [alert, setAlert] = useState(false);
+  const [isCopied,setCopied] = useState(false);
+  interface IError{
+      message:string,
+      colorBg:string,
+      colorTxt:string,
+  }
+
+
 
    const handleClick = async (e : React.SyntheticEvent<EventTarget> ) => {
       e.preventDefault();
       if(isFetched)return;
-      
 
       if(url==''){
-        setError(true);
+
+        err.message="Cannot have an empty URL"     
+        setErr(err);
+        setAlert(true);
+        
         setFetched(false);
         return
       }
+
       setFetched(true);
-      setError(false);
+      setAlert(false);
+
       const headers = {
-        'Content-Type': 'application/json', // This indicates that the request body is in JSON format // Example of adding an Authorization header
-        // Add any other headers you need here
+        'Content-Type': 'application/json', 
       };
 
       try {
@@ -41,15 +58,14 @@ export default function addUrl() {
             'Content-Type': 'application/json',
           }
         });
-        
-        console.log('Data fetched successfully:', response);const URLObj : URLInterface = response.data.URL;
-        
+        console.log('Data fetched successfully:', response);
+        const URLObj : URLInterface = response.data.URL;
         setShortUrl(`http://localhost:3000/su/${URLObj.key}`);
-        
-
       } catch (error) {
+        err.message=error as string
+        setErr(err);
+        setAlert(true);
 
-        setError(true);
         setShortUrl("");
         setFetched(false);
         console.error('Error fetching data:', error);
@@ -59,28 +75,37 @@ export default function addUrl() {
    }
 
     function handleAlert() {
-      setError(!error)
+      console.log("Handlealert")
+      setAlert(false);
+    }
+
+    function copyClipboard(){
+      navigator.clipboard.writeText(shortUrl);
+      setCopied(!isCopied)
     }
 
 
   return (
     <>
-    {error && <Alert message='Error' colorBg='#000' colorTxt='#FFF' onClick={handleAlert} />}
+    {alert && <Alert alert={err} onClick={handleAlert} />}
     <span className="addurl">
-      <h1>Paste URL to be shortened</h1>
-      <br />
-      <br />
-      <form  onSubmit={handleClick} >
-        <label htmlFor="URL">URL</label>
-        <input type="url" value={url} onChange={(e)=>{setUrl(e.target.value)}}></input>
-        <input type="submit" value="Shorten" disabled={isFetched}/>
-      </form>
-      <br />
-      <br />
 
-      { isFetched && <div className="shorturl">
-        {shortUrl}
-      </div> }
+      <form className='add-url-form'  onSubmit={handleClick} >
+        <h1 className='add-url-text'>Paste the URL to be shortened</h1>
+        <br /><br />
+        <input type="url" placeholder='Enter Your URL here' className='url-input' value={url} onChange={(e)=>{setUrl(e.target.value)}}></input>
+        <input type="submit" className='url-submit' value="Shorten" disabled={isFetched}/>
+        {isFetched && <div className="url-response-div" >
+          <div className='url-response' onClick={copyClipboard}>
+            {shortUrl}
+            <br />
+          </div>
+          <div className='tooltips'>{isCopied? <p>URL has been copied!</p>:  <p>Click to Copy URL</p> }</div>
+        </div> }
+      </form>
+      <p>To go back to homepage, click <a href="/" >here</a> </p>
+
+      
 
     </span>
     </>
