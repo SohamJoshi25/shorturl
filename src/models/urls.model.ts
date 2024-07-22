@@ -1,27 +1,23 @@
-import mongoose , {Schema} from "mongoose";
+import mongoose, { Schema, Document, Model } from "mongoose";
 
 export interface URLInterface{
-    key:string;
-    value:string;
-    expiryDate:Date;
+    key: string;
+    value: string;
 }
 
-
-export const URLSchema : Schema<URLInterface> = new Schema({
-    key:{
-        type:String,
-        required:true
+const URLSchema: Schema<URLInterface> = new Schema({
+    key: {
+        type: String,
+        required: true,
+        unique: true,
     },
-    value:{
-        type:String,
-        required:true
+    value: {
+        type: String,
+        required: true
     },
-    expiryDate:{
-        type:Date,
-        default:() => Date.now() + 24*60*60*1000,
-        required:true
-    }
-});
+},{ timestamps: true });
+URLSchema.index({ createdAt: 1 }, { expireAfterSeconds: 60*60*24*3 });
 
-const URLModel = (mongoose.models.URL as mongoose.Model<URLInterface> || mongoose.model<URLInterface>("URL" ,URLSchema ))
+const URLModel: Model<URLInterface> = mongoose.models.URL as Model<URLInterface> || mongoose.model<URLInterface>("URL", URLSchema);
+
 export default URLModel;

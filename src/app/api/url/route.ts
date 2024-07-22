@@ -7,13 +7,13 @@ import {redisClient} from "@/lib/redisConnect"
 export interface HashMap {
     [key: string] : string;
 } 
-const map : HashMap = {};
+let map : HashMap = {};
 
 export async function POST(request : NextRequest , response : NextResponse){
 
     const body = await request.json();
 
-    const value = body.value;
+    const value = body.value as string;
     const key = Math.random().toString(36).slice(2).substring(5);
     const expiryDate = new Date();
     expiryDate.setDate(expiryDate.getDate()+1);
@@ -21,8 +21,7 @@ export async function POST(request : NextRequest , response : NextResponse){
     await dbConnect();
     const URLobj = new URLModel<URLInterface>({
         key:key,
-        value:value,
-        expiryDate:expiryDate
+        value:value
     });
     await URLobj.save();
     
@@ -41,6 +40,7 @@ export async function GET(request : NextRequest , response : NextResponse){
 
     value = await redisClient.get(key as string) as string;
     if(value){
+        if(parseInt(map.size)>100000)map = {};
         map[key] = value;
         return NextResponse.json({message:"Success",source:"Redis",value:value},{status:200});
     }
@@ -48,7 +48,7 @@ export async function GET(request : NextRequest , response : NextResponse){
     await dbConnect();
     const DBObj: URLInterface|null = await URLModel.findOne({key:key})  ;
     if(DBObj){
-        await redisClient.set(key,DBObj.value);
+        await redisClient.set(key,DBObj.value,'EX',60*60);
         return NextResponse.json({message:"Success",source:"MongoDB",value:DBObj.value},{status:200});
     } 
 

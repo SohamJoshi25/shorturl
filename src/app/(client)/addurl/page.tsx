@@ -14,10 +14,11 @@ export default function addUrl() {
   const [url,setUrl] = useState("");
   const [shortUrl , setShortUrl] = useState("PLease wait . .");
   const [isFetched, setFetched] = useState(false);
+  const [isSuccess, setSuccess] = useState(false);
   const [err, setErr] = useState<IError>({
     message:"Some Error Occured",
-    colorBg:"#000",
-    colorTxt:"#FFF", 
+    colorBg:"#000000C0",
+    colorTxt:"#FF3333", 
   });
   const [alert, setAlert] = useState(false);
   const [isCopied,setCopied] = useState(false);
@@ -44,6 +45,8 @@ export default function addUrl() {
       }
 
       setFetched(true);
+
+      
       setAlert(false);
 
       const headers = {
@@ -60,12 +63,13 @@ export default function addUrl() {
         });
         console.log('Data fetched successfully:', response);
         const URLObj : URLInterface = response.data.URL;
+
+        setSuccess(true);
         setShortUrl(`http://localhost:3000/su/${URLObj.key}`);
       } catch (error) {
-        err.message=error as string
+        err.message=JSON.stringify(error)     
         setErr(err);
         setAlert(true);
-
         setShortUrl("");
         setFetched(false);
         console.error('Error fetching data:', error);
@@ -79,6 +83,11 @@ export default function addUrl() {
       setAlert(false);
     }
 
+    function handleSuccess(){
+      console.log("Handlealert")
+      setSuccess(false);
+    }
+
     function copyClipboard(){
       navigator.clipboard.writeText(shortUrl);
       setCopied(!isCopied)
@@ -88,6 +97,7 @@ export default function addUrl() {
   return (
     <>
     {alert && <Alert alert={err} onClick={handleAlert} />}
+    {isSuccess && <Alert alert={{message:"Success | URL has been shortened! ",colorBg:"#000000C0",colorTxt:"#00ff00"}} onClick={handleSuccess} />}
     <span className="addurl">
 
       <form className='add-url-form'  onSubmit={handleClick} >
@@ -100,7 +110,7 @@ export default function addUrl() {
             {shortUrl}
             <br />
           </div>
-          <div className='tooltips'>{isCopied? <p>URL has been copied!</p>:  <p>Click to Copy URL</p> }</div>
+          {isFetched && <div className='tooltips'>{isCopied? <p>URL has been copied!</p>:  <p>Click to Copy URL</p> }</div>}
         </div> }
       </form>
       <p>To go back to homepage, click <a href="/" >here</a> </p>
