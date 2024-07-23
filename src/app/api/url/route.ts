@@ -38,7 +38,12 @@ export async function GET(request : NextRequest , response : NextResponse){
         return NextResponse.json({message:"Success",source:"HashMap",value:value},{status:200});
     }
 
-    value = await redisClient.get(key as string) as string;
+    try{
+        value = await redisClient.get(key as string) as string;
+    }catch(err){
+        console.error(err);
+    }
+    
     if(value){
         if(parseInt(map.size)>100000)map = {};
         map[key] = value;
@@ -62,7 +67,13 @@ export async function DELETE(request : NextRequest , response : NextResponse){
     const key = searchParams.get('key') as string | "";
 
     delete map[key];
-    await redisClient.del(key);
+    
+    try{
+        await redisClient.del(key);
+    }catch(err){
+        console.error(err);
+    }
+    
     await dbConnect();
     const DBObj: URLInterface|null = await URLModel.findOneAndDelete({key:key});
 
