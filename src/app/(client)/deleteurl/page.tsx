@@ -9,7 +9,7 @@ import '@/app/(client)/addurl/addUrl.css'
 
  
 
-export default function addUrl() {
+export default function Page() {
 
   const [url,setUrl] = useState<string>("");
   const [isFetched, setFetched] = useState(false);

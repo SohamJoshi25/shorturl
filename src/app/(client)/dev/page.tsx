@@ -4,7 +4,7 @@ import React from 'react'
 import "@/app/(client)/dev/dev.css"
 import Image from "../../../../public/BlueSuit.jpeg"
 
-export default function page() {
+export default function Page() {
   return (
     <div className='dev'>
       <div className='dev-about'>
@@ -14,7 +14,7 @@ export default function page() {
         </div>
         <div className="dev-info">
           <h3>Hello folks, I am Soham Joshi, the sole developer of this project. At the time of making this project i am in my 3rd year of Engineering. I love to build and craft ideas and try to implement a real world solution to modern problems. This project is one of such implementations.</h3>
-          <h3> My Aim of the project is to provide a solution to the difficulty in managing long URLs by shoutning it. This project called <b>"shorturl" </b> is my first "next" project. This Project teaches me lots of valuable knowledge and always eager to improve for the better. </h3>
+          <h3> My Aim of the project is to provide a solution to the difficulty in managing long URLs by shoutning it. This project called <b>shorturl </b> is my first next project. This Project teaches me lots of valuable knowledge and always eager to improve for the better. </h3>
           <h3>If You have enountered any bug or you have any suggessions, please do contact me at the handles below. Feel free to contribute to this project through the mentioned below github link.</h3>
           <a href="https://www.linkedin.com/in/sohamjoshi25/" target='_blank'>LinkedIn</a>
           <a href="https://github.com/SohamJoshi25/shorturl"  target='_blank'>Github</a>

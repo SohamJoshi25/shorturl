@@ -55,7 +55,7 @@ const Page = ({ params }: { params: { key: string } }) => {
       fetchAndRedirect();
     }
       
-  }, []);
+  }, [params]);
 
   return (<div className='su'>
     {success ? <h1> Redirecting . . .</h1> : <h1> Not a valid URL | Please try re-checking your URL</h1> }
