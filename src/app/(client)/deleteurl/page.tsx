@@ -51,7 +51,7 @@ export default function Page() {
       const arr = url.split("/")
 
       try {
-        const response = await axios.delete(`http://localhost:3000/api/url?key=${arr[arr.length-1]}`,);
+        const response = await axios.delete(`${process.env.NEXT_PUBLIC_PROXY}api/url?key=${arr[arr.length-1]}`,);
         console.log('Data fetched successfully:', response);
         setDeleted(true);
 

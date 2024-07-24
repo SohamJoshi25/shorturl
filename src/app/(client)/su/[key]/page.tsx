@@ -20,7 +20,7 @@ const Page = ({ params }: { params: { key: string } }) => {
   const fetchData = async (): Promise<APIresponse | null> => {
     console.log("Flag")
     try {
-      const response = await axios.get<APIresponse>(`http://localhost:3000/api/url?key=${params.key}`, {
+      const response = await axios.get<APIresponse>(`${process.env.NEXT_PUBLIC_PROXY}api/url?key=${params.key}`, {
         headers: {
           'Content-Type': 'application/json',
         },

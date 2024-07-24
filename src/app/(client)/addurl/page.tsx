@@ -55,7 +55,7 @@ export default function Page() {
       };
 
       try {
-        const response = await axios.post(`http://localhost:3000/api/url`,{
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_PROXY}api/url`,{
           "value":url,
         },{
           headers: {
@@ -66,7 +66,7 @@ export default function Page() {
         const URLObj : URLInterface = response.data.URL;
 
         setSuccess(true);
-        setShortUrl(`http://localhost:3000/su/${URLObj.key}`);
+        setShortUrl(`${process.env.NEXT_PUBLIC_PROXY}su/${URLObj.key}`);
       } catch (error) {
         err.message=JSON.stringify(error)     
         setErr(err);
