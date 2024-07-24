@@ -53,6 +53,7 @@ export default function Page() {
       const headers = {
         'Content-Type': 'application/json', 
       };
+       console.log(`${process.env.NEXT_PUBLIC_PROXY}api/url`);
 
       try {
         const response = await axios.post(`${process.env.NEXT_PUBLIC_PROXY}api/url`,{
