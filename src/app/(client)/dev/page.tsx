@@ -13,33 +13,34 @@ export default function page() {
           <h3>Soham Joshi</h3>
         </div>
         <div className="dev-info">
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At tempore aspernatur cum laudantium. Ea praesentium at distinctio quis! In repudiandae sed aliquam maiores quos exercitationem enim tempore incidunt fugit dolor.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quasi maxime obcaecati pariatur necessitatibus maiores perspiciatis, odit officia, error quaerat porro beatae. Aspernatur accusamus, nam iusto tempore expedita quas ratione!</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi omnis earum, consectetur deleniti aliquam laborum aut architecto, accusantium modi repellat nostrum quaerat dicta, saepe hic sit sapiente similique illum facilis.</p>
-          <a href="">Lorem ipsum dolor sit amet.</a>
-          <a href="">Lorem, ipsum.</a>
-          <a href="">Lorem, ipsum dolor.</a>
+          <h3>Hello folks, I am Soham Joshi, the sole developer of this project. At the time of making this project i am in my 3rd year of Engineering. I love to build and craft ideas and try to implement a real world solution to modern problems. This project is one of such implementations.</h3>
+          <h3> My Aim of the project is to provide a solution to the difficulty in managing long URLs by shoutning it. This project called <b>"shorturl" </b> is my first "next" project. This Project teaches me lots of valuable knowledge and always eager to improve for the better. </h3>
+          <h3>If You have enountered any bug or you have any suggessions, please do contact me at the handles below. Feel free to contribute to this project through the mentioned below github link.</h3>
+          <a href="https://www.linkedin.com/in/sohamjoshi25/" target='_blank'>LinkedIn</a>
+          <a href="https://github.com/SohamJoshi25/shorturl"  target='_blank'>Github</a>
+          <a>Reach me out at <b>sohamjoshiofficial@gmail.com</b> </a>
         </div>
       </div>
       <br />
       <br />
       <div className='project-info-div'>
-        <h3>About This Project</h3>
+        <h2>About This Project</h2>
         <span className='project-details'>
         <div className="project-card">
-          <div className="project-info">Lor Lorem ipsum dolor sit amet consectetur, adipisicing elit. Offic Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate quidem porro veritatis illo molestias voluptatibus earum ducimus quis facere laboriosam, at dolores labore doloremque nostrum minima cum quam, inventore ullam velit corrupti laborum soluta aliquam nam possimus? Voluptatem ea itaque obcaecati aliquid sequi! Vitae repu em ipsum dolor sit, amet consectetur adipisicing elit. Quia officiis soluta facere velit eveniet vero modi, quas harum atque deleniti dolores adipisci nulla laborum. Eius ad nesciunt rem cumque aut.</div>
-          <div className="project-img"><img src="/BlueSuit.jpeg" alt="" /></div>
+          <div className="project-info">Redis was crucial for caching, reducing MongoDB load and enhancing performance. I utilized various data structures and implemented TTL for cache expiration, ensuring data freshness. Additionally, Redis enabled effective rate limiting, preventing service abuse and maintaining application reliability under high traffic conditions.</div>
+          <div className="project-img"><img src="/redis.png" alt="" /></div>
         </div>
         <div className="project-card">
-          <div className="project-info">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Offic Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate quidem porro veritatis illo molestias voluptatibus earum ducimus quis facere laboriosam, at dolores labore doloremque nostrum minima cum quam, inventore ullam velit corrupti laborum soluta aliquam nam possimus? Voluptatem ea itaque obcaecati aliquid sequi! Vitae repu Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam excepturi atque vel aut modi quo, alias, aliquid quibusdam dignissimos ipsa dolorem sint impedit, suscipit obcaecati repudiandae recusandae quas ex esse!</div>
-          <div className="project-img"><img src="/BlueSuit.jpeg" alt="" /></div>
+          <div className="project-info">Using MongoDB, I designed schemas for URL storage and implemented CRUD operations with Mongoose. I explored aggregation pipelines to generate usage analytics, understanding complex queries and indexing to optimize performance. This experience highlighted the importance of efficient schema design and data management in scalable applications.</div>
+          <div className="project-img"><img src="/mongodb.png" alt="" /></div>
         </div>
         <div className="project-card">
-          <div className="project-info">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Offic Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate quidem porro veritatis illo molestias voluptatibus earum ducimus quis facere laboriosam, at dolores labore doloremque nostrum minima cum quam, inventore ullam velit corrupti laborum soluta aliquam nam possimus? Voluptatem ea itaque obcaecati aliquid sequi! Vitae repudiandae harum delectus velit ratione a. ia ullam iusto, commodi cupiditate earum dignissimos suscipit nulla amet voluptate quisquam vel minus minima tempora magnam ipsa ipsam neque alias repellat.</div>
-          <div className="project-img"><img src="/BlueSuit.jpeg" alt="" /></div>
+          <div className="project-info">In my project, I delved into Next.js, mastering Server-Side Rendering (SSR) and Static Site Generation (SSG) to enhance speed and SEO. I utilized API routes for serverless functions handling URL shortening logic and dynamic routing for managing shortened URLs, ensuring a seamless and efficient user experience. I have also used typescript as a language of choice which addidionally gave me type safety.</div>
+          <div className="project-img"><img src="/nextjs.png" alt="" /></div>
         </div>
         </span>
       </div>
+      <p>To go back to homepage, click <a href="/" >here</a> </p>
     </div>
   )
 }

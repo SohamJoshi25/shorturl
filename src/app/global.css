@@ -5,7 +5,9 @@ body{
     margin: 0;
 }
 
-
+link{
+  scale: 3;
+}
 
 .vbar{
     display:flex;

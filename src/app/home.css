@@ -32,7 +32,7 @@
     margin-top: 2em;
     display: flex;
     align-content: center;
-    width: 30%;
+    width: 55vw;
     height: 10%;
 }
 .url-button-div>button{
@@ -40,7 +40,7 @@
     width: 100%;
     margin: 10px;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 2.4vmin;
+    font-size: 4vmin;
     background-color: #edd395c7;
     box-shadow: black 4px 6px 0px;
     border-radius: 1.2vmin;
@@ -55,8 +55,8 @@
 
 .home-footer{
    bottom: 10px;
-   font-size:1vmax;
-   margin-top: 10em;
+   font-size:1.3vmax;
+   margin-top: 5em;
    position: relative;
    display: inline-block;
 }

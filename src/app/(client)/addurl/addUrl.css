@@ -12,6 +12,10 @@
     justify-content: space-evenly;
 }
 
+p{
+    font-size:1.5vmax;
+}
+
 .addurl form{
     background-color: rgba(121, 120, 123, 0.034);
     font-size: 100%;

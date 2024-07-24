@@ -6,25 +6,32 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: rgba(228, 231, 240, 0.774);
+    background-color: rgba(228, 231, 240, 0);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+h3{
+    font-weight: 400;
+}
+
 img{
-    height: 10em;
-    width: 10em;
+    height:100%;
+    width:100%;
 }
 
 .dev-about{
+
     margin: 1em;
-    background-color: blueviolet;
+    background-color: rgba(164, 162, 162, 0.454);
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    font-size: larger;
+    border-radius: 1em;
 }
 
 .dev-pfp{
@@ -39,11 +46,18 @@ img{
     border-radius: 7em;
     scale:1.1;
     object-fit: cover;
+    height: 10em;
+    width: 10em;
 }
 
 .dev-info{
-    margin: 1em;
-    background-color: antiquewhite
+    margin: 0.5em;
+    padding: 0.5em;
+    background-color: rgba(212, 195, 173, 0.482);
+    border-radius: 1em;
+    font-size: x-large;
+    box-shadow: 1px 1px 4px 1px;
+    font-weight: 100;
 }
 
 .dev-info>a{
@@ -51,6 +65,52 @@ img{
 }
 
 .project-info-div{
+    border-radius: 1em;
+    text-align: center;
     margin: 1em;
-    background-color: blueviolet;
+    background-color: rgba(164, 162, 162, 0.454);
 }
+
+.project-details{
+    display: flex;
+}
+.project-card{
+    margin: 1em;
+}
+
+
+.project-info{
+    box-shadow: 0px 0px 5px 0px;
+    background-color: rgba(212, 195, 173, 0.651);
+    padding: 1em;
+    border-radius: 1em;
+
+}
+.project-img{
+    padding: 3em;
+}
+
+p{
+    font-size:1.5vmax;
+}
+
+@media screen and (max-width :800px) {
+    .dev-about {
+      flex-direction: column;
+    }
+    .dev , .dev-info{
+        font-size: medium;
+    }
+  }
+
+  @media screen and (max-width :600px) {
+    .project-details {
+      flex-direction: column;
+    }
+    .project-card{
+        width: 80vw;
+    }
+    p{
+        font-size: small;
+    }
+  }
