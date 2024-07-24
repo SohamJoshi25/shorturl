@@ -14,7 +14,7 @@ const URLSchema: Schema<URLInterface> = new Schema({
     value: {
         type: String,
         required: true
-    },
+    }, 
 },{ timestamps: true });
 URLSchema.index({ createdAt: 1 }, { expireAfterSeconds: 60*60*24*3 });
 
