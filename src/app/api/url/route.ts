@@ -1,7 +1,7 @@
 import { NextRequest,NextResponse } from "next/server";
 import dbConnect from "@/lib/dbConnect";
 import URLModel , { URLInterface } from "@/models/urls.model";
-import {redisClient} from "@/lib/redisConnect"
+//import {redisClient} from "@/lib/redisConnect"
 
 
 export interface HashMap {
@@ -43,11 +43,11 @@ export async function GET(request : NextRequest , response : NextResponse){
             return NextResponse.json({message:"Success",source:"HashMap",value:value},{status:200});
         }
 
-        try{
-            value = await redisClient.get(key as string) as string;
-        }catch(err){
-            console.error(err);
-        }
+        // try{
+        //     value = await redisClient.get(key as string) as string;
+        // }catch(err){
+        //     console.error(err);
+        // }
         
         if(value){
             if(parseInt(map.size)>100000)map = {};
@@ -58,7 +58,7 @@ export async function GET(request : NextRequest , response : NextResponse){
         await dbConnect();
         const DBObj: URLInterface|null = await URLModel.findOne({key:key})  ;
         if(DBObj){
-            await redisClient.set(key,DBObj.value,'EX',60*60);
+           // await redisClient.set(key,DBObj.value,'EX',60*60);
             return NextResponse.json({message:"Success",source:"MongoDB",value:DBObj.value},{status:200});
         } 
 
@@ -77,11 +77,11 @@ export async function DELETE(request : NextRequest , response : NextResponse){
 
         delete map[key];
         
-        try{
-            await redisClient.del(key);
-        }catch(err){
-            console.error(err);
-        }
+        // try{
+        //     await redisClient.del(key);
+        // }catch(err){
+        //     console.error(err);
+        // }
         
         await dbConnect();
         const DBObj: URLInterface|null = await URLModel.findOneAndDelete({key:key});
