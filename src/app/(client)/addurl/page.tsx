@@ -67,7 +67,7 @@ export default function Page() {
         const URLObj : URLInterface = response.data.URL;
 
         setSuccess(true);
-        setShortUrl(`${process.env.NEXT_PUBLIC_PROXY}su/${URLObj.key}`);
+        setShortUrl(`${process.env.NEXT_PUBLIC_PROXY}x/${URLObj.key}`);
       } catch (error) {
         err.message=JSON.stringify(error)     
         setErr(err);
